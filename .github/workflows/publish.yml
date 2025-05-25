@@ -1,0 +1,54 @@
+name: Publish to npm
+
+on:
+  release:
+    types: [created]
+
+jobs:
+  publish:
+    name: Package & Publish to npm
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          registry-url: 'https://registry.yarnpkg.com'
+
+      - name: Enable Corepack
+        run: corepack enable
+
+      - name: Install dependencies
+        run: yarn install --immutable
+
+      - name: Build project
+        run: yarn build
+
+      - name: Pack package
+        run: yarn pack
+        id: pack
+
+      - name: Get package filename
+        run: echo "PACKAGE_FILE=$(ls *.tgz | head -n 1)" >> $GITHUB_ENV
+
+      - name: Upload package artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: yarn-package
+          path: "${{ env.PACKAGE_FILE }}"
+
+      - name: Attach to GitHub release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: "${{ env.PACKAGE_FILE }}"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Publish to npm via yarn
+        run: yarn npm publish --access public "${{ env.PACKAGE_FILE }}"
+        env:
+          npmAuthToken: ${{ secrets.NPM_TOKEN }}
