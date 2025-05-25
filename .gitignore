@@ -4,7 +4,6 @@
 !.yarn/sdks
 !.yarn/versions
 !.yarn/install-state.gz
-.pnp.*
 dist/
 node_modules/
 *.tgz
