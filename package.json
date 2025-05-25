@@ -1,0 +1,24 @@
+{
+  "name": "@bhhaskin/next-utils",
+  "version": "0.1.0",
+  "description": "Utility functions for Next.js projects",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "rollup -c",
+    "lint": "eslint 'src/**/*.{ts,tsx}' --fix"
+  },
+  "peerDependencies": {
+    "next": ">=12"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^8.32.1",
+    "@typescript-eslint/parser": "^8.32.1",
+    "eslint": "^9.27.0",
+    "rollup": "^2.70.0",
+    "rollup-plugin-typescript2": "^0.31.2",
+    "typescript": "^4.8.4"
+  },
+  "packageManager": "yarn@4.9.1"
+}
