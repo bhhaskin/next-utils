@@ -5,6 +5,21 @@ __metadata:
   version: 8
   cacheKey: 10c0
 
+"@bhhaskin/next-utils@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "@bhhaskin/next-utils@workspace:."
+  dependencies:
+    "@typescript-eslint/eslint-plugin": "npm:^8.32.1"
+    "@typescript-eslint/parser": "npm:^8.32.1"
+    eslint: "npm:^9.27.0"
+    rollup: "npm:^2.70.0"
+    rollup-plugin-typescript2: "npm:^0.31.2"
+    typescript: "npm:^4.8.4"
+  peerDependencies:
+    next: ">=12"
+  languageName: unknown
+  linkType: soft
+
 "@eslint-community/eslint-utils@npm:^4.2.0, @eslint-community/eslint-utils@npm:^4.7.0":
   version: 4.7.0
   resolution: "@eslint-community/eslint-utils@npm:4.7.0"
@@ -1428,21 +1443,6 @@ __metadata:
   checksum: 4c559dd52669ea48e1914f9d634227c561221dd54734070791f999c52ed0ff36e437b2e07d5c1f6e32909fc625fe46491c16e4a8f0572567d4dd15c3a4fda04b
   languageName: node
   linkType: hard
-
-"next-utils@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "next-utils@workspace:."
-  dependencies:
-    "@typescript-eslint/eslint-plugin": "npm:^8.32.1"
-    "@typescript-eslint/parser": "npm:^8.32.1"
-    eslint: "npm:^9.27.0"
-    rollup: "npm:^2.70.0"
-    rollup-plugin-typescript2: "npm:^0.31.2"
-    typescript: "npm:^4.8.4"
-  peerDependencies:
-    next: ">=12"
-  languageName: unknown
-  linkType: soft
 
 "node-gyp@npm:latest":
   version: 11.2.0
